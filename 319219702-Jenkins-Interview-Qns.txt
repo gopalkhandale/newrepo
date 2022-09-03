@@ -1,0 +1,177 @@
+1.
+What is continuous Integration?
+C.I is nothing but continuous compilation. C.I is a system which monitors fo
+r new changes in any version control system like svn/git, checkouts the source,
+builds the changes, tests the change by running corresponding test cases and dep
+loys it to given environment automatically (and seamlessly) without any manual i
+ntervention.
+C.I is a process or system which helps to integrate all tools and technologies r
+equired to move the code from development to deployment.
+Ideal Build and deployment workflow:
+check for changes
+|
+checkout
+|
+Build
+|
+Run Test cases
+|
+Deploy
+2.
+What is the importance of C.I? Or Why we need C.I?
+3.
+Have you created Jenkins jobs from scratch? How you create a new Jenkins Job.
+NewItem-->job name --> description-->select project type(free style, maven, exte
+rnal script, multi configurable job) --> svn url --> triggers --> Build file -->
+post build(emial and trigger deployment scirpt)
+4.
+How do you install jenkins? What are the different ways of installing jenkins.
+- java -jar jenkins.war
+- yum installation (sudo service jenkins start)
+- deploy jenkins.war in any application server like Tomcat
+5.
+How do you migrate Jenkins from one server to another?
+- install jenkins in new machine
+- copy .jenkins to new server
+- reload configurations from the disk
+- restart jenkins
+(Note: usually we don't copy workspace as it is source code and contains large s
+ize of data)
+6.
+How do you start/stop/restart Jenkins?
+7.
+What is the default port number for jenkins? How do you change the port number?
+8.
+Where do you find Jenkins logs?
+9.
+What challenges you faced while setting up the jenkins?
+1- 1024 reserved
+
+10.
+How do you find if jenkins running?
+11.
+What is the best way or how do you stop jenkins cleanly without interrupting run
+ning jobs?
+- URL/saferestart
+12.
+Where does jenkins store Global and job related configurations.
+13.
+I want to change JDK for all my 1000 jobs. how do you do that? (any other config
+s)
+.jenkins/jobs/job[1..1000]/config.xml
+- find all config.xml files
+- store in an array
+- iterate the array using for loop
+- inside the for loop, use sed/awk command for find&replace
+- Go to jenkins and say "RELOAD CONFIGURATIONS FROM DISK" so that je
+nkins can load config changes.
+14.
+How to clone Jenkins job
+15.
+16.
+How do you setup build and deployment using Jenkins for your projects?
+17.
+How many builds you store or how do you rotate logs? what strategy you follow fo
+r archiving jenkins data?
+18.
+What is parameterised build job?
+19.
+How do you configure different jenkins jobs to run with different JDKs.
+20.
+What is crontab and Poll scm? differences? which one you are using? why?
+- for compile check we use poll scm
+- for daily build we use, periodic build option.
+21.
+How do you configure security for your jenkins? Are you using LDAP for authentic
+ation? If not why? what's the difference? Pros & Cons?
+22.
+What is matrix based security?
+23.f
+What is plugin? What plugins you installed? Name few plugins which you have used
+?
+====
+1. Thin Backup -
+
+Using Cron tab style/notion, we can schedule the backups for jenkins. We usually
+take backup for Jenkins home directory. Once we install this plugin, It adds "T
+hinBackup" section to manage jenkins.
+2. Backup Plugin Manual backup. It doesn't provide crontab kind of style for scheduling backups.
+we have to manually trigger the backup if we use this plugin. We usually take ba
+ckup for Jenkins home directory. Once we install this plugin, It adds â Backup manage
+r â to Manage Jenkins.
+3. Parameterised Trigger Plugin:
+Trigger other build job on the same master by passing some env variables
+.
+4.Inject Environment variables:
+If we want to pass some environment variables to downstream jobs.
+5. Email-ext plugin/Editable Email notification:
+This is advanced plugin for Jenkins default email notifications.
+Using this plugin, we can create out own email subject, body and
+alos attach log or any file while sending the emails to users.
+6. Configure History plugin:
+Check job configuration history like delete, configuration changes, user additio
+n/deletion..etc. Once we install this plugin, we can see who has done what or wh
+o made what changes. It records the history of all users and modifications.
+7. Shelve project:
+If we have large size of build log files, un-used jenkins jobs, Jenkins will
+become slow(as it has to scan all projects for generating reports). So, It's go
+od idea to archive any un-used jenkins jobs so that jenkins don't scan the proje
+ct. since this plugin archives the projects, we can restore them if we want in t
+he future.
+====
+24.
+How you install /uninstall plugins? manual plugin installation?
+25.
+Do you back up your jenkins? how?
+26.
+What is "Reload configurations from the Disk"? when do you use this?
+27.
+How do you take back up for only jobs? excluding WS?
+28.
+How do you set up distributed builds? How many slave nodes you have? What is a l
+abel?
+Label is a virtual name for one or more slave nodes using which we can tie a
+particular jenkins job to always run on a pariticular machine(Usually which has
+jdk6 or jdk8 or windows machine...etc.)
+29.
+What are the different ways to shutdown Jenkins?
+30.
+Have you configured Junit, Cobertura, Sonar for your builds?
+Have you integrated junit test cases?
+
+ToDo:
+31.
+Do you know how to integrate Jira with Jenkins?
+32.
+What is build pipeline?
+33.
+what kind of problems you faced with your jenkins so far?
+34.
+how much you reate yourself in jenknins?
+35.
+Do you have experience with .Net builds? what CI tools you have used for the sam
+e?
+36.
+What is CI/CD model?
+37.
+How do you setup email? have you used advanced email configuration plugin?
+38.
+how do you upgrade jenkins?
+39.
+40.
+What is Jenkins architecture?
+- Jekins is java based web application
+- So we need to have an application server to run this
+- It's extensible because it's based on plug-ins
+41.
+What is node, how do you manage nodes?
+42.
+How do you setup Jenkins from scratch?
+What are the prerequisites to start Jenkins?
+43. how do you deploy webapp in tomcat?
+44.
+defference between Applicaiton and web server.
+45.
+what is static and dynamic content
+
+
